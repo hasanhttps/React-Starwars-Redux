@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../utils/hooks'
 
 const Films = () => {
 
-    const {list, isLoading} = useAppSelector((state) => state.fetchReducer);
+    const {list} = useAppSelector((state) => state.fetchReducer);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
@@ -20,7 +20,7 @@ const Films = () => {
             <Header/>
 
             <div className="films" id='list'>
-                {isLoading ? <p>Loading ...</p> : <></>}
+                {list.length == 0 ? <p>Loading ...</p> : <></>}
                 {list.map((film, i) => (
                     <div key={i} className='film-item'>
                         <p>{film.title}</p>

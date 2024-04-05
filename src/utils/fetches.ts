@@ -1,15 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IFetchReducer {
-  list: object[],
-  isLoading: boolean,
+  list: object[]
   error: string
 }
 
 
 const initialState: IFetchReducer = {
   list: [],
-  isLoading: false,
   error: ''
 }
 
@@ -18,11 +16,9 @@ export const FetchSlice = createSlice({
   initialState,
   reducers: {
     Request: (state) => {
-      state.isLoading = true;
     },
     Success: (state, action: PayloadAction<object[]>) => {
       state.list = action.payload;
-      state.isLoading = false;
       state.error = '';
     },
     Error: (state, action: PayloadAction<string>) => {

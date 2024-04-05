@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { AppDispatch } from './store';
-import { useAppSelector } from './hooks';
-import { FetchSlice, fetchActions } from './fetches';
+import { fetchActions } from './fetches';
 
 
 

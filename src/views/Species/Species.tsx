@@ -7,13 +7,12 @@ import { useAppDispatch, useAppSelector } from '../../utils/hooks'
 
 const Species = () => {
 
-    const {list, isLoading} = useAppSelector((state) => state.fetchReducer);
+    const {list} = useAppSelector((state) => state.fetchReducer);
     const dispatch = useAppDispatch();
 
     useEffect(() => {
         dispatch(fetchStarwars("species"));
     }, []);
-
 
     return (
         <div className='container' id='species-container'>
@@ -21,7 +20,7 @@ const Species = () => {
             <Header/>
 
             <div className="species" id='list'>
-                {isLoading ? <p>Loading ...</p> : <></>}
+                {list.length == 0 ? <p>Loading ...</p> : <></>}
                 {list.map((specie, i) => (
                     <div className='person-item' key={i}>
                         <p className='name'>{specie.name}</p>
